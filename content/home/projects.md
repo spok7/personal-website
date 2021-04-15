@@ -2,11 +2,12 @@
 # A Projects section created with the Portfolio widget.
 widget = "portfolio"  # See https://sourcethemes.com/academic/docs/page-builder/
 headless = true  # This file represents a page section.
-active = true  # Activate this widget? true/false
+active = false  # Activate this widget? true/false
+draft = true
 weight = 65  # Order that this section will appear.
 
 title = "Projects"
-subtitle = ""
+subtitle = "ALL THINGS ARE DIFFICULT BEFORE THEY ARE EASY"
 
 [content]
   # Page type to display. E.g. project.
@@ -21,17 +22,25 @@ subtitle = ""
   # Default filter index (e.g. 0 corresponds to the first `[[filter_button]]` instance below).
   filter_default = 0
   
-  # [[content.filter_button]]
-  #   name = "All"
-  #   tag = "*"
-  
-  # [[content.filter_button]]
-  #   name = "Deep Learning"
-  #   tag = "Deep Learning"
-  
-  # [[content.filter_button]]
-  #   name = "Other"
-  #   tag = "Demo"
+#  [[content.filter_button]]
+#    name = "All"
+#    tag = "*"
+#  
+#  [[content.filter_button]]
+#    name = "Deep Learning"
+#    tag = "Deep Learning"
+#  
+#  [[content.filter_button]]
+#    name = "Other"
+#    tag = "Demo"
+#  
+#  [[content.filter_button]]
+#    name = "Human"
+#    tag = "human"
+#  
+#  [[content.filter_button]]
+#    name = "Robotics"
+#    tag = "robotics"
 
 [design]
   # Choose how many columns the section has. Valid values: 1 or 2.
@@ -39,7 +48,6 @@ subtitle = ""
 
   # Toggle between the various page layout types.
   #   1 = List
-  #   2 = Compact
   #   3 = Card
   #   5 = Showcase
   view = 3
@@ -61,7 +69,7 @@ subtitle = ""
   # gradient_end = "SkyBlue"
   
   # Background image.
-  # image = "background.jpg"  # Name of image in `static/media/`.
+  # image = "background.jpg"  # Name of image in `static/img/`.
   # image_darken = 0.6  # Darken the image? Range 0-1 where 0 is transparent and 1 is opaque.
 
   # Text color (true=light or false=dark).
