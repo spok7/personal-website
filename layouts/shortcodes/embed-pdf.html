@@ -1,4 +1,7 @@
 <script type="text/javascript" src="/js/pdf-js/build/pdf.js"></script>
+<!-- <script type="module" src="/js/pdf-js/web/viewer.js"></script> -->
+<!-- <script type="text/javascript" src="/node_modules/pdfjs-dist/build/pdf.js"></script> -->
+<!-- <script type="text/javascript" src="/node_modules/pdfjs-dist/lib/web/text_layer_builder.js"></script> -->
 <style>
 #the-canvas {
   border: 1px solid black;
@@ -10,6 +13,23 @@
     text-align: center;
     margin-bottom: 10px;
 }
+#text-layer { 
+   position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    opacity: 0.2;
+    line-height: 1.0;
+}
+#text-layer > div {
+    color: transparent;
+    position: absolute;
+    white-space: pre;
+    cursor: text;
+    transform-origin: 0% 0%;
+}
 </style>
 
 <div id="paginator">
@@ -20,6 +40,7 @@
 </div>
 <div id="embed-pdf-container">
     <canvas id="the-canvas"></canvas>
+    <div id="text-layer" class="textLayer"></div>
 </div>
 
 <script type="text/javascript">
@@ -33,7 +54,8 @@ var hidePaginator = '{{ .Get "hidePaginator" }}';
 var pdfjsLib = window['pdfjs-dist/build/pdf'];
 
 // The workerSrc property shall be specified.
-pdfjsLib.GlobalWorkerOptions.workerSrc = "{{.Site.BaseURL}}" + '/js/pdf-js/build/pdf.worker.js';
+pdfjsLib.GlobalWorkerOptions.workerSrc = "{{.Site.BaseURL}}" + 'js/pdf-js/build/pdf.worker.js';
+// pdfjsLib.GlobalWorkerOptions.workerSrc = "{{.Site.BaseURL}}" + '/node_modules/pdfjs-dist/build/pdf.worker.js';
 
 // Change the Scale value for lower or higher resolution.
 var pdfDoc = null,
@@ -43,6 +65,7 @@ var pdfDoc = null,
     scale = 3,
     canvas = document.getElementById('the-canvas'),
     ctx = canvas.getContext('2d');
+
 
 /**
  * Get page info from document, resize canvas accordingly, and render page.
@@ -71,7 +94,24 @@ function renderPage(num) {
         renderPage(pageNumPending);
         pageNumPending = null;
       }
-    });
+      // return page.getTextContent();
+    }).then(function(textContent) {
+      // var pdf_canvas = $("#the-canvas");            // PDF canvas
+      // var canvas_offset = pdf_canvas.offset();      // Canvas offset
+      // var canvas_height = pdf_canvas.get(0).height; // Canvas height
+      // var canvas_width = pdf_canvas.get(0).width;   // Canvas width
+
+      // // Assign CSS to the text-layer element
+      // $("#text-layer").css({ left: canvas_offset.left + 'px', top: canvas_offset.top + 'px', height: canvas_height + 'px', width: canvas_width + 'px' });
+
+      // // Pass the data to the method for rendering of text over the pdf canvas.
+      // pdfjsLib.renderTextLayer({
+      //     textContent: textContent,
+      //     container: $("#text-layer").get(0),
+      //     viewport: viewport,
+      //     textDivs: []
+      // });;
+    });;
   });
 
   // Update page counters
