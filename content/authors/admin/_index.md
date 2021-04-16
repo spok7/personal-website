@@ -1,6 +1,6 @@
 ---
 # Display name
-name: Michael Szpakowicz
+name: Michael (Spok) Szpakowicz
 avatar_image: "profile3.jpg"
 # Username (this should match the folder name)
 authors:
@@ -82,3 +82,6 @@ email: ""
 <!-- 2. Relevant skills / experiences. Be specific, use technical language. -->
 <!-- 3. Strong Conclusion -->
 <!-- 4. Proofread and edit -->
+I am Spok, and I inspire people by making robots!
+
+When I got involved with my high school robotics team, I realized that robots are really cool! Since then, I've had the pleasure of sharing my passion as a lead of many tech groups and a teaching assistant at the University of Toronto, and later, while starting the campus' very own robotics club. In my later studies, I have become very excited about machine learning as well, and I am constantly looking for problems that would benefit from the intersection of these two fields.
