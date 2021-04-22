@@ -42,5 +42,5 @@
 
 [[main]]
    name = "Resume"
-   url = "files/resume-michael-szpakowicz.pdf"
+   url = "resume"
    weight = 80

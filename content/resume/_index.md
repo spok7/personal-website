@@ -27,4 +27,4 @@ image:
 #   Otherwise, set `projects = []`.
 projects: []
 ---
-{{< embed-pdf url="./files/resume-michael-szpakowicz.pdf" hidePaginator="true" >}}
+{{< pdfView url="./files/resume-michael-szpakowicz.pdf" >}}

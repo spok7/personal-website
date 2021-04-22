@@ -53,7 +53,7 @@ hero_media = "profile.jpg"
 #  icon = "download"
 
 [btn_alt2]
-  url = "files/resume-michael-szpakowicz.pdf"
+  url = "resume"
   label = "Resume"
   icon = "download"
 

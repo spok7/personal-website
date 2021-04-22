@@ -1,0 +1,82 @@
+<html dir="ltr" mozdisallowselectionprint>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=3, maximum-scale=1">
+  <meta name="google" content="notranslate">
+
+  <style>
+    #pageContainer {
+      border:9px solid transparent !important;
+      border-image: url(/node_modules/pdfjs-dist/web/images/shadow.png) 9 9 repeat !important;
+    }
+  </style>
+
+  <link rel="stylesheet" href="/node_modules/pdfjs-dist/web/pdf_viewer.css">
+
+  <script src="/node_modules/pdfjs-dist/build/pdf.js"></script>
+  <script src="/node_modules/pdfjs-dist/web/pdf_viewer.js"></script>
+</head>
+
+<body tabindex="1">
+  <div id="pageContainer" class="pdfViewer singlePageView"></div>
+
+  <script>
+    "use strict";
+  
+    if (!pdfjsLib.getDocument || !pdfjsViewer.PDFPageView) {
+      // eslint-disable-next-line no-alert
+      alert("Please build the pdfjs-dist library using\n  `gulp dist-install`");
+    }
+  
+    // The workerSrc property shall be specified.
+    //
+    pdfjsLib.GlobalWorkerOptions.workerSrc =
+      "/node_modules/pdfjs-dist/build/pdf.worker.js";
+  
+    // Some PDFs need external cmaps.
+    const CMAP_URL = "/node_modules/pdfjs-dist/cmaps/";
+    const CMAP_PACKED = true;
+  
+    const DEFAULT_URL = "{{.Site.BaseURL}}" + '{{ .Get "url" }}';
+    const PAGE_TO_VIEW = 1;
+    const SCALE = 1.0;
+  
+    const container = document.getElementById("pageContainer");
+  
+    const eventBus = new pdfjsViewer.EventBus();
+  
+    // Loading document.
+    const loadingTask = pdfjsLib.getDocument({
+      url: DEFAULT_URL,
+      cMapUrl: CMAP_URL,
+      cMapPacked: CMAP_PACKED,
+    });
+    loadingTask.promise.then(function (pdfDocument) {
+      // Document loaded, retrieving the page.
+      return pdfDocument.getPage(PAGE_TO_VIEW).then(function (pdfPage) {
+        // Creating the page view with default parameters.
+        const pdfPageView = new pdfjsViewer.PDFPageView({
+          container,
+          id: PAGE_TO_VIEW,
+          scale: SCALE,
+          defaultViewport: pdfPage.getViewport({ scale: SCALE }),
+          eventBus,
+          // We can enable text/annotations layers, if needed
+          textLayerFactory: new pdfjsViewer.DefaultTextLayerFactory(),
+          annotationLayerFactory: new pdfjsViewer.DefaultAnnotationLayerFactory(),
+        });
+        // Associates the actual page with the view, and drawing it
+        pdfPageView.setPdfPage(pdfPage);
+        return pdfPageView.draw();
+      });
+    });
+  </script>
+  
+  <p>
+    <a href="https://www.spok.dev/files/resume-michael-szpakowicz.pdf" download>
+      <i class="fa fa-download"></i>
+      Download
+    </a>
+  </p>
+</body>
+</html>
