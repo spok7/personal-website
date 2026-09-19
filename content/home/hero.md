@@ -59,6 +59,4 @@ hero_media = "profile.jpg"
 
 
 +++
-## I am **Michael Szpakowicz**, a **Computer Science Graduate** specializing in **Robotics** and **Machine Learning**
-
-I am also known as **Spok** within circles of friends and colleagues.
+## I am **Spok**, and I build robots.

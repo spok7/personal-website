@@ -7,7 +7,7 @@ draft = true
 weight = 65  # Order that this section will appear.
 
 title = "Projects"
-subtitle = "ALL THINGS ARE DIFFICULT BEFORE THEY ARE EASY"
+# subtitle = "The goal is always to learn"
 
 [content]
   # Page type to display. E.g. project.

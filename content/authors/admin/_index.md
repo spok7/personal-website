@@ -30,11 +30,15 @@ superuser: true
 display_education: true
 
 interests:
-- Mobile Robotics
+- Service Robotics
 - Machine Learning
+- Computer Vision
 
 education:
   courses:
+  - course: MEng in Aerospace Engineering
+    institution: University of Toronto
+    year: 2023
   - course: HBSc in Computer Science
     institution: University of Toronto
     year: 2020
@@ -82,6 +86,6 @@ email: ""
 <!-- 2. Relevant skills / experiences. Be specific, use technical language. -->
 <!-- 3. Strong Conclusion -->
 <!-- 4. Proofread and edit -->
-I am Spok, and I inspire people by making robots!
+<!-- I am Spok, and I inspire people by making robots! -->
 
-When I got involved with my high school robotics team, I realized that robots are really cool! Since then, I've had the pleasure of sharing my passion as a lead of many tech groups and a teaching assistant at the University of Toronto, and later, while starting the campus' very own robotics club. In my later studies, I have become very excited about machine learning as well, and I am constantly looking for problems that would benefit from the intersection of these two fields.
+When I got involved with my high school robotics team, I became enamoured with the prospect of designing complex physical systems controlled by intelligent algorithms. Since then, I've had the pleasure of sharing my passion as a lead of many tech groups and a teaching assistant at the University of Toronto, and later, while starting the campus' very own robotics club. By the end of my studies, I became very excited about machine learning as well, and I focused my Masters degree on the intersection of the two. I am currently refining my skills by developing service robots at Admetal Robotics, though I am constantly looking for new avenues to apply my knowledge.
